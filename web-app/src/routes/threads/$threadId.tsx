@@ -32,6 +32,7 @@ import {
 import { useOptimisticUserMessage } from '@/hooks/useOptimisticUserMessage'
 import { buildOptimisticUserMessage } from '@/lib/optimisticUserMessage'
 import { useChat } from '@/hooks/use-chat'
+import { autoReadReply, useReadAloud } from '@/stores/read-aloud-store'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { renderInstructions } from '@/lib/instructionTemplate'
 import {
@@ -258,6 +259,7 @@ function ThreadDetail() {
   const { t } = useTranslation()
   const serviceHub = useServiceHub()
   const { threadId } = useParams({ from: Route.id })
+  useEffect(() => () => useReadAloud.getState().stop(), [threadId])
   const search = useSearch({ from: Route.id })
   const searchThreadModel = search.threadModel
   const setCurrentThreadId = useThreads((state) => state.setCurrentThreadId)
@@ -545,6 +547,7 @@ function ThreadDetail() {
               : 'success',
           message
         )
+        if (!willContinue && !isContextLimit) autoReadReply(message)
         return
       }
 
@@ -555,6 +558,7 @@ function ThreadDetail() {
         // Terminal only when no tool calls are queued: with tools, onFinish
         // fires once per step and the turn continues after they resolve.
         captureTurnOutcome('success', message)
+        autoReadReply(message)
       }
 
       // Persist assistant message to backend.
@@ -842,6 +846,7 @@ function ThreadDetail() {
       const run = useAgentRun.getState().getRun(threadId)
       if (event.type === 'turn_finished') {
         persistAgentRun(run)
+        autoReadReply(buildAgentUIMessage(run))
         const shape = agentResponseShape(
           run,
           useAppState.getState().ragToolNames,

@@ -12,6 +12,7 @@ import { route } from '@/constants/routes'
 import { useAppState } from '@/hooks/useAppState'
 import { useAssistant } from '@/hooks/useAssistant'
 import { useChat } from '@/hooks/use-chat'
+import { autoReadReply } from '@/stores/read-aloud-store'
 import { useMessages } from '@/hooks/useMessages'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { usePrompt } from '@/hooks/usePrompt'
@@ -124,6 +125,7 @@ export function DeferredFirstSendProvider() {
 
       const pendingTools = toolCallsRef.current.splice(0)
       if (pendingTools.length === 0) {
+        autoReadReply(message)
         toolControllerRef.current = null
         setWorker(null)
         return

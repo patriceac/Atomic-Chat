@@ -15,6 +15,7 @@ import {
   ReasoningViewport,
 } from '@/components/ai-elements/reasoning'
 import { CopyButton } from './CopyButton'
+import { ReadAloudButton } from './ReadAloudButton'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { IconAlertCircle, IconPencil, IconRefresh } from '@tabler/icons-react'
 import { AudioPlayer } from '@/containers/AudioPlayer'
@@ -569,6 +570,7 @@ export const MessageItem = memo(
               )}
             >
               <CopyButton text={getFullTextContent()} />
+              <ReadAloudButton id={message.id} text={getFullTextContent()} />
 
               {onEdit && !isStreaming && (
                 <Button

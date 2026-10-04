@@ -410,5 +410,24 @@
     "noneTitle": "No decision models downloaded",
     "noneDescription": "Download one in the Decision category of the Hub",
     "availableInApi": "Available in the API"
+  },
+  "readAloud": {
+    "title": "Lecture à voix haute · Supertonic 3",
+    "description": "Des voix naturelles en anglais et en français. Gratuit et hors ligne.",
+    "automatic": "Lire automatiquement les nouvelles réponses",
+    "voice": "Voix",
+    "systemVoice": "Voix neuronale par défaut",
+    "female": "Voix féminine {{number}}",
+    "male": "Voix masculine {{number}}",
+    "language": "Langue de lecture",
+    "english": "Anglais",
+    "french": "Français",
+    "speed": "Vitesse",
+    "preview": "Tester la voix",
+    "previewTextEnglish": "Hello! This is a natural local voice for Atomic Chat. Your conversations stay on your computer.",
+    "previewTextFrench": "Bonjour ! Voici une voix naturelle pour Atomic Chat. Tes conversations restent sur ton ordinateur.",
+    "unsupported": "La lecture vocale est indisponible sur cet appareil.",
+    "noVoices": "Les voix neuronales sont disponibles dans l'application Windows.",
+    "failed": "La lecture vocale a échoué. Choisissez une autre voix ou réessayez."
   }
 }

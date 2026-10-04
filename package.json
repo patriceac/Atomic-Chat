@@ -33,6 +33,7 @@
     "download:lib": "node ./scripts/download-lib.mjs",
     "download:bin": "node ./scripts/download-bin.mjs",
     "download:core": "node ./scripts/download-core.mjs",
+    "prepare:read-aloud": "node ./scripts/prepare-read-aloud.mjs",
     "download:cloudflared": "node ./scripts/download-bin.mjs --only=cloudflared",
     "build:mlx-server": "make build-mlx-server",
     "build:foundation-models-server": "make build-foundation-models-server",
@@ -56,6 +57,9 @@
     "build:extensions:win32": "cd extensions && yarn workspaces foreach -Apt --exclude @janhq/mlx-extension --exclude @janhq/foundation-models-extension run build:publish",
     "build:extensions:linux": "cd extensions && yarn workspaces foreach -Apt --exclude @janhq/mlx-extension --exclude @janhq/foundation-models-extension run build:publish",
     "prepare": "husky"
+  },
+  "dependencies": {
+    "onnxruntime-node": "1.30.0"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^2.7.0",

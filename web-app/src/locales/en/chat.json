@@ -268,5 +268,9 @@
   "threadType": {
     "chat": "Chat thread",
     "agent": "Agent thread"
+  },
+  "readAloud": {
+    "start": "Read aloud",
+    "stop": "Stop reading"
   }
 }

@@ -13,6 +13,7 @@ import { Switch } from '@/components/ui/switch'
 import { Card, CardItem } from '@/containers/Card'
 import { VoicePermissionBlock } from '@/containers/dialogs/VoiceSetupDialog'
 import VoiceModelCard from '@/containers/VoiceModelCard'
+import { ReadAloudSettings } from '@/containers/ReadAloudSettings'
 import VoiceLevelMeter from '@/containers/chatInput/VoiceLevelMeter'
 import {
   VOICE_LANGUAGES,
@@ -114,6 +115,7 @@ export function VoiceSettingsPanel() {
   return (
     <div className="flex flex-col gap-4">
       <p className="text-muted-foreground">{t('settings:voice.subtitle')}</p>
+      <ReadAloudSettings />
 
       <Card title={t('settings:voice.modelTitle')}>
         <CardItem

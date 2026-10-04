@@ -5,6 +5,14 @@ import { localStorageKey } from '@/constants/localStorage'
 import { VOICE_LANGUAGES, type VoiceLanguage } from '@/constants/voice'
 
 type VoiceSettingState = {
+  autoReadReplies: boolean
+  setAutoReadReplies: (value: boolean) => void
+  speechVoiceURI: string | null
+  setSpeechVoiceURI: (value: string | null) => void
+  speechRate: number
+  setSpeechRate: (value: number) => void
+  speechLanguage: 'en' | 'fr'
+  setSpeechLanguage: (value: 'en' | 'fr') => void
   /** Set once the user finishes (or closes) the setup wizard. */
   setupCompleted: boolean
   setSetupCompleted: (value: boolean) => void
@@ -40,6 +48,14 @@ type VoiceSettingState = {
 export const useVoiceSetting = create<VoiceSettingState>()(
   persist(
     (set) => ({
+      autoReadReplies: false,
+      setAutoReadReplies: (value) => set({ autoReadReplies: value }),
+      speechVoiceURI: null,
+      setSpeechVoiceURI: (value) => set({ speechVoiceURI: value }),
+      speechRate: 1,
+      setSpeechRate: (value) => set({ speechRate: value }),
+      speechLanguage: 'en',
+      setSpeechLanguage: (value) => set({ speechLanguage: value }),
       setupCompleted: false,
       setSetupCompleted: (value) => set({ setupCompleted: value }),
 

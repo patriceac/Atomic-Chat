@@ -19,6 +19,8 @@ pub(crate) mod process_env;
 pub mod process_reaper;
 pub mod server;
 pub mod sessions;
+#[cfg(not(any(target_os = "android", target_os = "ios")))]
+pub mod speech;
 pub mod setup;
 pub mod state;
 pub mod system;
